@@ -14,6 +14,9 @@ The database model was architected using **Crow's Foot Notation** to enforce str
 *   **Shipments (Transactional Layer)**: Tracks cargo manifests using high-precision financial tracking variables (`DECIMAL(10,2)`) to eliminate float-rounding errors across heavy transaction metrics.
 
 ### Verification Matrix (Relational Inner Join)
+
+![Enterprise Logistics ERD Diagram](trucker_erd_2.png)
+
 Data integrity was tested and verified using complex multi-table `INNER JOIN` operations to map active freight routes to individual operators on the fly:
 ```sql
 SELECT S.Shipment_ID, S.Destination_City, S.Shipment_Value_USD, T.License_Plate, D.Driver_Name
